@@ -1,9 +1,8 @@
 # ComputerVision
 Analog clock to Digital clock using Computer Vision
-<img width="454" alt="image" src="https://github.com/user-attachments/assets/f117c079-8c75-437f-b468-493d8bdb3a04" />
+
 Abstract.The reason for converting analog time to digital time using image processing is to automate the extraction of time information from analog clock faces. This allows for integration with systems and applications reducing the reliance on manual time reading and enabling smooth interaction between analog and digital timekeeping methods. The method used includes preparing the image by detecting edges and applying the Hough Transform to locate the lines that represent the clock hands. We then group these lines based on their angles to differentiate between the hour and minute hands. By analyzing these lines our program can accurately convert analog clock time into format making the  process more automated and precise. As a result of this program, analog time is successfully converted into digital time using image processing, demonstrating that clock hands can be accurately detected and analyzed, resulting in a digital representation of the displayed time.
 
-“Teaser” figure. A figure that conveys the main idea behind the project or the main application being addressed.
 
 Introduction. The reason for automating the conversion of time to time through image processing is to make it easier to extract time related information from analog clocks for various purposes, such as smart home automation, data recording and improving accessibility for visually impaired individuals. In the field of computer vision and image processing current methods for detecting clock hands often rely on techniques such as contour tracing, skeletonization of the image, or machine learning models that are trained to recognize clocks.
 This program follows an approach by using the Hough Transform for detecting lines and clustering them to identify hour and minute hands. While this is in line with methods the uniqueness may lie in the parameters chosen for line clustering and how these clusters are analyzed to determine the digital time. Also, the built-in cv2 Hough transformation function is not used here to prevent a trivial solution. The program demonstrates an implementation that bridges the gap between analog and digital timekeeping with applications, in IoT, robotics and assistive technologies.
@@ -53,11 +52,10 @@ Experiments and results. Provide details about your experimental arrangement. (F
 
 The first part to implement was the Hough transformation which is where we used the implicit representation to find lines. After getting the Hough coordinates that passed a specific threshold, we looked for the presence of the specific theta values that correspond to where the hands of the clock are pointing. Simultaneously, the coordinates of edges that correspond to the coordinate in the Hough space are stored. We would display the points found that passed the specified threshold and saw the lines detected. A lower threshold value would allow more Hough coordinates to pass, effectively allowing more points on the image to pass. Since different clock images have different sizes, we decided on a parameter that would be a fraction of a dimension of the image.
 
-Image here
+
 
 After this, the longest lines had to be filtered. This was done by iterating through each list for each Hough space coordinate and finding the longest consecutive lines. This would again take into account the size of the image when deciding how far apart pixels can be so they can be deemed as consecutive in a line. This would allow lines around the clock to be formed.
 
-Image here
 
 After getting the consecutive lines, we then had to get the lines that were closest to the center of the image. A simple distance formula was used to get the distance for each point in the line and if not one point was close, the line was removed. The lines closest to the center are what is shown in the output since they are all used for final calculation. These lines were then grouped together with their average angle and distance used to decide which hand of the clock they belonged to. These angles were put into formulas for calculating the minutes and hours of the clock. The grouping and calculation were from another project[1] that had the same topic and goal but different methods for getting lines.
 
@@ -69,7 +67,7 @@ With this,
 
 
 
-
+<img width="100" alt="image" src="https://github.com/user-attachments/assets/f117c079-8c75-437f-b468-493d8bdb3a04" />
 
 
 Qualitative results. Show several visual examples of inputs/outputs of your system (success cases and failures) that help us understand your approach.
