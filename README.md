@@ -67,7 +67,7 @@ With this,
 
 
 
-<img width="100" alt="image" src="https://github.com/user-attachments/assets/f117c079-8c75-437f-b468-493d8bdb3a04" />
+<img width="370" alt="image" src="https://github.com/user-attachments/assets/f117c079-8c75-437f-b468-493d8bdb3a04" />
 
 
 Qualitative results. Show several visual examples of inputs/outputs of your system (success cases and failures) that help us understand your approach.
